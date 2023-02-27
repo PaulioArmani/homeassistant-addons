@@ -5,6 +5,7 @@
   "description": "Add-on wrapped inception-mqtt project from matthew-larner for use as addon with Home Assistant OS",
   "url": "https://github.com/PaulioArmani/homeassistant-addons",
   "image": "paulioarmani/image-{arch}-inception-mqtt",
+  "init" : false,
   "options" : {
     "baseUrl" : null,
     "port" : 80,
