@@ -7,7 +7,7 @@ configuration:
     description: "Enter an Inception username. You need to setup a REST Web API User in the inception web interface"
   password:
     name: Password
-    description: "Enter the password you setup for this user as above."
+    description: "Enter the password you setup for the user as above."
   alarm_code:
     name: Alarm code
     description: "Enter a code to use as the code on Home Assistant only; has not connection to the inception user codes."
