@@ -55,8 +55,8 @@ const main = async () => {
     await inception.connect(config.inception, publishStatusChange);
     await homeAssistant.connect(config.mqtt);
     
-    inceptionStateMonitor.polling(mqttConfig);
-    inceptionLiveReviewMonitor.polling(mqttConfig);
+    inceptionStateMonitor.polling(config.mqtt);
+    inceptionLiveReviewMonitor.polling(config.mqtt);
 
   } catch (error) {
     console.error(error.message);
