@@ -119,6 +119,7 @@ const startControlInputs = async () => {
   controlInputs.map(input => {
     const name = input.Name;
     const outputId = input.ID;
+    const topic = `${mqttConfig.discovery_prefix}/binary_sensor/${outputId}/config`;
     const stateTopic = `${mqttConfig.topic_prefix}/binary_sensor/${outputId}`;
 
     let deviceClass = [
