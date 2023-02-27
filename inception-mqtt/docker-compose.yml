@@ -8,6 +8,9 @@ services:
 	  - /usr/src/app/node_modules
 	  - /usr/src/app/dist
 	  - /usr/src/app/config
+	environment:
+    - TZ=Australia/Sydney
+  restart: unless-stopped
 	networks:
 	  - app
 networks:

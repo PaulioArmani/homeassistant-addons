@@ -1,7 +1,7 @@
 import axios, { AxiosError } from 'axios';
 import * as delay from 'delay';
 
-import { ControlObjectInterface, MonitorUpdatesResponseInterface, InceptionConfig } from '../contracts';
+import { ControlObjectInterface, MonitorStateUpdatesResponseInterface, MonitorReviewUpdatesResponseInterface, InceptionConfig } from '../contracts';
 
 let config: InceptionConfig;
 let userID = '';
@@ -110,7 +110,8 @@ export const postControlDoorActivity = async (id: string, controlType: string) =
   try {
     await axios.post(`${config.base_url}/control/door/${id}/activity`, {
       Type: 'ControlDoor',
-      DoorControlType: controlType
+      DoorControlType: controlType,
+      TimeSecs: 5
     }, {
       headers: {
         Cookie: `LoginSessId=${userID}`
@@ -180,7 +181,7 @@ export const getControlInputs = async (): Promise<ControlObjectInterface[]> => {
   }
 };
 
-export const monitorUpdates = async (payload: any[], onUnAuthorizedHandler: () => void): Promise<MonitorUpdatesResponseInterface> => {
+export const monitorUpdates = async (payload: any[], onUnAuthorizedHandler: () => void): Promise<MonitorStateUpdatesResponseInterface|MonitorReviewUpdatesResponseInterface> => {
   try {
     const timeout = (config.polling_timeout ?? 60) * 1000;
     const response = await axios.post(`${config.base_url}/monitor-updates`, payload, {
