@@ -31,8 +31,6 @@ const authenticate = async (): Promise<void> => {
     // Kill app if authentication fails
     if (response.data.Response.Result !== "Success") {
       console.error('Killing application due to failed inception authentication');
-      console.error(response.data.Response.Result);
-      console.error('url: ', config.base_url + '/authentication/login');
       process.exit(1);
     }
 
@@ -43,7 +41,6 @@ const authenticate = async (): Promise<void> => {
     onAuthenticatedHandler(true);
   } catch (error) {
     console.error('Error in inception authentication: ' + error.message);
-    console.error('url: ', config.base_url + '/authentication/login');
 
     if (!wasConnectedOnce) {
       process.exit(1);

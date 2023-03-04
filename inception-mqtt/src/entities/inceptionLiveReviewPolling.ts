@@ -4,6 +4,7 @@ import * as mqtt from './mqtt';
 
 export const polling = async (mqttConfig: any) => {
 
+  
   const liveReviewEvents = 'LiveReviewEvents';
 
   const publishLiveReviewUpdates = (data: ReviewDataInterface) => {
@@ -15,7 +16,7 @@ export const polling = async (mqttConfig: any) => {
       MessageCategory,
       What,
       Where
-    }), true);
+    }), false);
   };
   
   let monitorUpdatesPayload: MonitorReviewUpdatesPayloadInterface[];
